@@ -1,6 +1,6 @@
 filetype off
 
-" BEGIN VUNDLE
+" ======= BEGIN VUNDLE
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -24,20 +24,24 @@ Plugin 'tpope/vim-bundler'
 " Util
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'jiangmiao/auto-pairs' " Auto Pair [({
+Plugin 'bling/vim-airline' " vim bottom status
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" END VUNDLE
+" ======= END VUNDLE
 
 
-
-
+" ======= THEME
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
+" Airline
+let g:airline_theme='solarized dark'
+" ======= END THEME
 
 " Make Vim more useful
 set nocompatible
@@ -160,3 +164,18 @@ if executable('ag')
 
   let g:ctrlp_use_caching = 0
 endif
+
+
+" ======= KEY BINDING
+
+" Arrows are unvimlike 
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" ======= END KEY BINDING
