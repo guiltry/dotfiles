@@ -22,6 +22,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'tpope/vim-bundler'
 
 " Util
+Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'jiangmiao/auto-pairs' " Auto Pair [({
@@ -40,7 +41,9 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 " Airline
-let g:airline_theme='solarized dark'
+let g:airline_theme='luna'
+set timeoutlen=50
+
 " ======= END THEME
 
 " Make Vim more useful
