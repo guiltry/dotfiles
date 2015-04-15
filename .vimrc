@@ -1,3 +1,39 @@
+filetype off
+
+" BEGIN VUNDLE
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" Rails
+Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-bundler'
+
+" Util
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" END VUNDLE
+
+
+
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
@@ -48,9 +84,13 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+" Change tab to space
+set expandtab
+
+" " Show “invisible” characters
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set list
+
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -96,11 +136,27 @@ noremap <leader>ss :call StripWhitespace()<CR>
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+" if has("autocmd")
+" 	" Enable file type detection
+" 	filetype on
+" 	" Treat .json files as .js
+" 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+" 	" Treat .md files as Markdown
+" 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+" endif
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore .svn
+        \ --ignore .hg
+        \ --ignore .keep
+        \ --ignore .DS_Store
+        \ --ignore "**/*.pyc"
+        \ --ignore "vendor/**"
+        \ -g ""'
+
+  let g:ctrlp_use_caching = 0
 endif

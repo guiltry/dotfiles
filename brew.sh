@@ -82,6 +82,7 @@ brew install woff2
 # Install other useful binaries.
 # brew install ack
 brew install ag
+brew install ctags
 #brew install exiv2
 brew install git
 # brew install git-lfs
