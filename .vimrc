@@ -26,7 +26,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'jiangmiao/auto-pairs' " Auto Pair [({
-Plugin 'bling/vim-airline' " vim bottom status
+Plugin 'bling/vim-airline' " Vim status bar
+Plugin 'epmatsw/ag.vim' " Search Files
+Plugin 'xolox/vim-misc' " Ctags
+Plugin 'xolox/vim-easytags' " Ctags
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -152,6 +155,8 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 " endif
 
+" ======= PLUGIN SETTING
+
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
@@ -167,6 +172,11 @@ if executable('ag')
 
   let g:ctrlp_use_caching = 0
 endif
+
+" easytags
+:let g:easytags_auto_update = 0
+:let g:easytags_auto_highlight = 0
+" ======= END PLUGIN SETTING
 
 
 " ======= KEY BINDING
